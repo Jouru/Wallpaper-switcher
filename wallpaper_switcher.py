@@ -128,7 +128,7 @@ class X_Walls(Walls):
             # Set wallpaper
             i = randint(0, (len(pics) - 1))
             wallpaper = f"{path}/{pics[i]}"
-            os.system(f"feh --bg-fill {wallpaper}")
+            os.system(f"feh --bg-fill '{wallpaper}'")
             # Time until new wallpaper
             sleep(int(time))
 
