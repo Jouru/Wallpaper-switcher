@@ -56,11 +56,14 @@ class Config:
         else:
             self._time = self.getconf()["time"]
 
-    ## Check if running wayland or X11
+    # Check if running wayland or X11
     @staticmethod
     def check_backend():
         result = subprocess.run(
-            "echo $XDG_SESSION_TYPE", shell=True, capture_output=True, text=True
+            "echo $XDG_SESSION_TYPE",
+            shell=True,
+            capture_output=True,
+            text=True
         )
         backend = result.stdout.strip("b ''\n")
         return backend
@@ -114,7 +117,7 @@ class Way_Walls(Walls):
             # Set wallpaper
             i = randint(0, (len(pics) - 1))
             wallpaper = f"{path}/'{pics[i]}'"
-            os.system(f"swww img {wallpaper} &")
+            os.system(f"swww img '{wallpaper}' &")
             # Time until next wallpaper
             sleep(int(time))
 
